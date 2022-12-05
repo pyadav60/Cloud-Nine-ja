@@ -457,6 +457,6 @@ async function runGame(plans, Display) {
                                 Display);
     if (status == "won") level++;
   }
-  window.location.assign("//127.0.0.1:5500/16_game/Homepage/winPage.html");
+  window.location.assign("/winPage.html");
   console.log("You've won!");
 }
