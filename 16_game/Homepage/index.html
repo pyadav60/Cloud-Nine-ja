@@ -1,0 +1,42 @@
+<!doctype html>
+<link rel="stylesheet" href="Homepage.css">
+
+<body background="/16_game/background/home.png" style="background-repeat: no-repeat;">
+    <a href="/16_game/runGame.html">
+        <button class="playButton" style="font-family: CustomFont;">
+            Play!
+        </button>
+    </a>
+    <a href="/16_game/Homepage/helpPage.html">
+        <button class="helpButton" style="font-family: CustomFont;">
+            How to Play
+        </button>
+    </a>
+    <a href="/16_game/Homepage/credits.html">
+        <button class="creditsButton" style="font-family: CustomFont;">
+            Credits
+        </button>
+    </a>
+
+    <img id="sound" src="/16_game/background/musicon.png" data-state="play"/>
+    <audio src="music.mp3" preload>
+        Your browser does not support the <code>audio</code> tag
+    </audio>
+    <script language="javascript" type="text/javascript">
+        document.querySelector("img").addEventListener("click", function(e){
+        var state = e.currentTarget.dataset.state;
+            if (state == "play") {
+    	        document.querySelector("audio").play();
+                e.currentTarget.dataset.state = "pause";
+                document.getElementById("sound").src = "/16_game/background/musicon.png";
+
+            }
+            else {
+    	        document.querySelector("audio").pause();
+                e.currentTarget.dataset.state = "play";
+                document.getElementById("sound").src = "/16_game/background/musicoff.png";
+            }	
+        });
+</script>
+
+</body>

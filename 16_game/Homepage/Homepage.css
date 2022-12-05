@@ -1,0 +1,114 @@
+.center {
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 800;
+}
+@font-face {
+  font-family: "CustomFont";
+  src: url("/16_game/font/AssassinNinja-7BYyR.ttf");
+}
+.playButton {
+    border: none;
+    padding: 15 px 32x;
+    text-align: center;
+    background-color: transparent;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 64px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:absolute; left: 850px; top: 550px;
+    color: white;
+}
+.helpButton{
+  border: none;
+  padding: 15 px 32x;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 52px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position:absolute; left: 1050px; top: 700px;
+  color: white;
+}
+.creditsButton{
+  border: none;
+  padding: 15 px 32x;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 64px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position:absolute; left: 900px; top: 870px;
+  color: white;
+}
+.backButton{
+  border: none;
+  padding: 15 px 32x;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 64px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position:absolute; left: 650px; top: 870px;
+  color: white;
+}
+.winBackButton{
+  border: none;
+  padding: 15 px 32x;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 64px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position:absolute; left: 970px; top: 820px;
+  color: white;
+}
+.helpText{
+  text-align: center;
+  font-size: 32px;
+  line-height: 100px;
+  position:absolute; left: 300px; top: 200px;
+}
+.creditsText{
+  text-align: center;
+  font-size: 32px;
+  line-height: 100px;
+  position:absolute; left: 260px; top: 200px;
+}
+.playMusic{
+  border: none;
+  padding: 15 px 32x;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 64px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position:absolute; left: 670px; top: 100px;
+  color: white;
+}
+.pauseMusic{
+  border: none;
+  padding: 15 px 32x;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 64px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position:absolute; left: 970px; top: 100px;
+  color: white;
+}
