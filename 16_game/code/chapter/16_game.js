@@ -135,6 +135,21 @@ var Spike = class Spike {
   }
 }
 
+var Enemy = class Enemy {
+  constructor(pos, basePos, wobble) {
+    this.pos = pos;
+    this.basePos = basePos;
+    this.wobble = wobble;
+  }
+  get type() { return "enemy";}
+  static create(pos, ch) {
+    let basePos = pos.plus(new Vec(0.2, 0.1));
+    if (ch == "x") {
+      return new Enemy(basePos, basePos, Math.random() * Math.PI * 2); 
+    }
+  }
+}
+
 Spike.prototype.size = new Vec(1, 1);
 
 platform.prototype.size = new Vec(1, 1);
@@ -162,7 +177,7 @@ var levelChars = {
   "@": Player, "o": Coin,
   "=": Lava, "|": Lava, "v": Lava,
   "s":"spike", "!": Spike,
-  "p":"platform", "-": platform
+  "p":"platform", "-": platform, "e":"enemy", "x": Enemy
 };
 
 var simpleLevel = new Level(simpleLevelPlan);
@@ -273,7 +288,10 @@ State.prototype.update = function(time, keys) {
     return new State(this.level, actors, "lost");
   } else if (this.level.touches(player.pos, player.size, "spike")) {
     return new State(this.level, actors, "lost");
+  } else if (this.level.touches(player.pos, player.size, "enemy")) {
+    return new State(this.level, actors, "lost");
   }
+  
 
   for (let actor of actors) {
     if (actor != player && overlap(actor, player)) {
@@ -305,6 +323,10 @@ Coin.prototype.collide = function(state) {
   return new State(state.level, filtered, status);
 };
 
+Enemy.prototype.collide = function(state) {
+  return new State(state.level, state.actor, "lost");
+}
+
 Lava.prototype.update = function(time, state) {
   let newPos = this.pos.plus(this.speed.times(time));
   if ((!state.level.touches(newPos, this.size, "wall")) && (!state.level.touches(newPos, this.size, "platform"))) {
@@ -315,6 +337,12 @@ Lava.prototype.update = function(time, state) {
     return new Lava(this.pos, this.speed.times(-1));
   }
 };
+
+Enemy.prototype.update = function(time) {
+  let wobble = this.wobble + time * wobbleSpeed;
+  let wobblePos = Math.sin(wobble) * wobbleDist;
+  return new Enemy(this.basePos.plus(new Vec(0, wobblePos)), this.basePos, wobble);
+}
 
 platform.prototype.update = function(time, state) {
   let newPos = this.pos.plus(this.speed.times(time));

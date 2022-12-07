@@ -50,3 +50,9 @@
 .won .player {
   box-shadow: -4px -7px 8px white, 4px -7px 8px white;
 }
+
+.enemy {
+  background: url('../sprites/goon.png');
+  background-size: 30px;
+  background-position: center;
+}
